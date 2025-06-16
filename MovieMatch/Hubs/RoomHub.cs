@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.SignalR;
+using MovieMatch.Services;
 
 namespace MovieMatch.Hubs
 {

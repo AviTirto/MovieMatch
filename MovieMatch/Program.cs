@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
+builder.Services.AddSingleton<IRoomStore, InMemoryRoomStore>();
 builder.Services.AddHttpClient<IMovieApiService, MovieApiService>();
 
 var app = builder.Build();

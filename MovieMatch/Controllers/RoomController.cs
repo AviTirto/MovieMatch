@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MovieMatch.Models;
 using MovieMatch.DTOs;
+using MovieMatch.Services;
 
 namespace MovieMatch.Controllers
 {
@@ -8,7 +9,12 @@ namespace MovieMatch.Controllers
     [Route("api/[controller]")]
     public class RoomController : ControllerBase
     {
-        private static readonly Dictionary<string, Room> Rooms = new();
+        private readonly IRoomStore _roomStore;
+
+        public RoomController(IRoomStore roomStore)
+        {
+            _roomStore = roomStore;
+        }
 
         [HttpPost("create")]
         public IActionResult CreateRoom([FromBody] CreateRoomRequest request)
@@ -22,16 +28,17 @@ namespace MovieMatch.Controllers
 
             room.People.Add(new Person { Name = request.HostName });
 
-            Rooms[room.Code] = room;
+            _roomStore.SaveRoom(room);
 
             return Ok(new { room.Code, room.Services });
-            
+
         }
 
         [HttpPost("{code}/join")]
         public IActionResult Joinroom(string code, [FromBody] JoinRoomRequest request)
         {
-            if (!Rooms.TryGetValue(code, out var room))
+            var room = _roomStore.GetRoom(code);
+            if (room == null)
             {
                 return NotFound($"Room {code} not found.");
             }
