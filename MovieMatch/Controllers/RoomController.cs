@@ -13,14 +13,19 @@ namespace MovieMatch.Controllers
         [HttpPost("create")]
         public IActionResult CreateRoom([FromBody] CreateRoomRequest request)
         {
+
             var room = new Room
             {
-                StreamingServices = request.StreamingServices
+                Services = request.Services,
+                ShowType = request.ShowType
             };
+
+            room.People.Add(new Person { Name = request.HostName });
 
             Rooms[room.Code] = room;
 
-            return Ok(new { room.Code, room.StreamingServices });
+            return Ok(new { room.Code, room.Services });
+            
         }
 
         [HttpPost("{code}/join")]
