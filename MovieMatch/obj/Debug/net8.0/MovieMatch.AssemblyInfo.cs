@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MovieMatch")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ea5cda6fee5e0f8d9849db6048c0244b2590977")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+66e0c7c260e6d1593a9577fc4b3601ae62d97781")]
 [assembly: System.Reflection.AssemblyProductAttribute("MovieMatch")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MovieMatch")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
