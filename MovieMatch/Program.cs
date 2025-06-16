@@ -6,7 +6,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 
-var app = builder.Build();
+var apiKey = builder.Configuration["ApiKey"];
 
 app.MapControllers();
 
