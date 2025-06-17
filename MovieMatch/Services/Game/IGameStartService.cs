@@ -1,7 +1,9 @@
+using MovieMatch.Models;
+
 namespace MovieMatch.Services.Game
 {
     public interface IGameStartService
     {
-        Task StartGameAsync(string roomId);
+        Task<List<Movie>> StartGameAsync(string roomId);
     }
 }

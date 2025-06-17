@@ -1,5 +1,4 @@
-using MovieMatch.Hubs;
-using Microsoft.AspNetCore.SignalR;
+using MovieMatch.Models;
 
 namespace MovieMatch.Services.Game
 {
@@ -7,16 +6,15 @@ namespace MovieMatch.Services.Game
     {
         private readonly IRoomStore _roomStore;
         private readonly IMovieApiService _apiService;
-        private readonly IHubContext<RoomHub> _hubContext;
 
-        public GameStartService(IRoomStore roomStore, IMovieApiService apiService, IHubContext<RoomHub> hubContext)
+
+        public GameStartService(IRoomStore roomStore, IMovieApiService apiService)
         {
             _roomStore = roomStore;
             _apiService = apiService;
-            _hubContext = hubContext;
         }
 
-        public async Task StartGameAsync(string roomId)
+        public async Task<List<Movie>> StartGameAsync(string roomId)
         {
             var room = _roomStore.GetRoom(roomId);
             if (room == null)
@@ -25,7 +23,9 @@ namespace MovieMatch.Services.Game
             }
 
             // Fetch movies from the API
-            var json = await _apiService.GetMoviesAsync([], room.ShowType);
+            var movies = await _apiService.GetMoviesAsync([], room.ShowType);
+
+            return movies;
         }
     }
 }
