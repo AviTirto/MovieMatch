@@ -50,34 +50,53 @@ namespace MovieMatch.Services
 
             foreach (var show in shows.EnumerateArray())
             {
+                int rating = 0;
+                if (show.TryGetProperty("rating", out var ratingProp))
+                {
+                    if (ratingProp.ValueKind == JsonValueKind.Number)
+                        rating = ratingProp.GetInt32();
+                    else if (ratingProp.ValueKind == JsonValueKind.String && int.TryParse(ratingProp.GetString(), out var r))
+                        rating = r;
+                }
+
+                int year = 0;
+                if (show.TryGetProperty("releaseYear", out var yearProp))
+                {
+                    if (yearProp.ValueKind == JsonValueKind.Number)
+                        year = yearProp.GetInt32();
+                    else if (yearProp.ValueKind == JsonValueKind.String && int.TryParse(yearProp.GetString(), out var y))
+                        year = y;
+                }
+
                 var movie = new Movie
                 {
                     Id = show.GetProperty("id").GetString(),
                     Title = show.GetProperty("title").GetString(),
                     Overview = show.GetProperty("overview").GetString(),
                     Director = show.GetProperty("directors")
-                        .EnumerateArray()
-                        .Select(d => d.GetString())
-                        .ToList(),
+                                .EnumerateArray()
+                                .Select(d => d.GetString())
+                                .ToList(),
                     Genres = show.GetProperty("genres")
-                        .EnumerateArray()
-                        .Select(g => g.GetProperty("id").GetString())
-                        .ToList(),
-                    Rating = int.TryParse(show.GetProperty("rating").GetString(), out int rating) ? rating : 0,
-                    Year = int.TryParse(show.GetProperty("releaseYear").GetString(), out int year) ? year : 0,
+                                .EnumerateArray()
+                                .Select(g => g.GetProperty("id").GetString())
+                                .ToList(),
+                    Rating = rating,
+                    Year = year,
                     PosterUrl = show.GetProperty("imageSet")
-                        .GetProperty("verticalPoster")
-                        .GetProperty("w480")
-                        .GetString(),
+                                    .GetProperty("verticalPoster")
+                                    .GetProperty("w480")
+                                    .GetString(),
                     Services = show.GetProperty("streamingOptions")
-                        .GetProperty("us")
-                        .EnumerateArray()
-                        .Select(s => s.GetProperty("service")
-                                      .GetProperty("id")
-                                      .GetString()
-                        )
-                        .ToList()
+                                .GetProperty("us")
+                                .EnumerateArray()
+                                .Select(s => s.GetProperty("service")
+                                              .GetProperty("id")
+                                              .GetString()
+                                )
+                                .ToList()
                 };
+
 
                 movies.Add(movie);
             }

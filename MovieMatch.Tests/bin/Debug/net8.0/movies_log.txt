@@ -1,0 +1,200 @@
+Id: 82
+Title: The Godfather
+Overview: Winner of three Academy Awards including Best Picture, Francis Ford Coppola's epic masterpiece paints a chilling portrait of the Corleone family, balancing the story between their family life and the ugly crime business in which they are engaged.
+Directors: Francis Ford Coppola
+Genres: crime, drama
+Rating: 90
+Year: 1972
+PosterUrl: https://cdn.movieofthenight.com/show/82/poster/vertical/en/480.jpg?Expires=1769129511&Signature=NDZGk5LpAf1FEFA1p4MUNETCNaI-F3XOl~~pQCJLWR7X61WDmeg-8DzQcp92hqX2ZyLhgYKyTS9k6cd098-AJ~GUO4iolr6eNhI4n~d0WHVVj~kyEOJz4faotJ~YG7WImf2rBf4D02zHrkKm8BnvigYVPTraPT93WLkfd919hGsbgf3adpcoznx9cmYWF8FLx8yGsb0TfLLg0sVzJwoUmXkrBnkFbs4W5AUS3a8JY8-OgtRV798iWaFPLxH6VMm~ZO26HO2zKaVtOLSMdxjl9hQkMLVGp1CtjBZK1ArkM9mIirkAA0Az019OMStKDsvG08jtWpywOHdr9hgIqbpWEw__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: paramount
+--------------------------------------------------------------------------------
+Id: 277
+Title: 12 Angry Men
+Overview: A twelve-person jury becomes increasingly tense with arguments continuing into the night as one juror must convince the other eleven he is right.
+Directors: Sidney Lumet
+Genres: crime, drama
+Rating: 88
+Year: 1957
+PosterUrl: https://cdn.movieofthenight.com/show/277/poster/vertical/en/480.jpg?Expires=1769130764&Signature=PbzruP-a9QSWziXhnHIy1g83DfhjKTMfDuO65GVSYt6zdYSKUVPppEAeJWsH6SB6X8cQkmU0WUQNS6LJlgXcyPt6Q4ELNDdfDHqqTkvsRPlcwrsgSDWY~FCqIkpE~Bp8S77N-669vkIUZ6L5D-1pR0raIc5h95xF2vq0iJ-QeVJrWS7lDgoeuIB5zXdVPfC3whavA5d0Az8CHRqjyUyYhn4sBSPR7HXCwqRUl6-wCkQA0y9xHoB4BPhpoByfu6FNWwMivwD6fsoagcdukXau2MNY9qyziuRCQJ3hKceA6TYroUyQcXGQkNjA-RGDbmkjO8UPmYMW7CRBWDXV573wjw__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: apple, apple, apple, plutotv, tubi
+--------------------------------------------------------------------------------
+Id: 129
+Title: The Godfather Part II
+Overview: This brilliant companion piece to the original THE GODFATHER continues the saga of two generations of successive power within the Corleone family. Often regarded as the best sequel ever made, the film won six Academy Awards, including Best Picture.
+Directors: Francis Ford Coppola
+Genres: crime, drama
+Rating: 88
+Year: 1974
+PosterUrl: https://cdn.movieofthenight.com/show/129/poster/vertical/en/480.jpg?Expires=1769127201&Signature=ENPxIkcA2zhAEswGP7TSOC51XTdugko~BXN8BIOqCZoZJ50kg~pfOCZ2dAkncsxhx-zZ9mlOVT39KrFs18c2oA8CfXdG5HfPJ4pzZAZv7bFZipaSs0RApLs9kFomWsstsH3At~sItKRclnTJJhpHufIBtnNlv8MJWFo3WplpO0Tg3fxs67KvHe6sT7rbEc7zq9QmUy~0JPmTRgaqYhWpNaCkMyQhRHDwfcpeE6bRRLUZq9Jjygc~gv0QY9cmm2LvP1Su4KPATK8yVKff7Nb8sIkM4XlB1ECKDk-3ke8gARrpyp27ux3RKBxo3sctDJSjTDwbPckBdYIuvis0QKw1kQ__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: paramount, prime, prime, prime, prime, prime, prime, prime
+--------------------------------------------------------------------------------
+Id: 112
+Title: Schindler's List
+Overview: Liam Neeson stars as Oskar Schindler, who tries to save Jewish workers from the Nazis. Violence/strong language/mature themes/flashing images. (1993)(188 mins)
+Directors: Steven Spielberg
+Genres: drama, history
+Rating: 88
+Year: 1993
+PosterUrl: https://cdn.movieofthenight.com/show/112/poster/vertical/en/480.jpg?Expires=1769131980&Signature=dqvdYa2f~Tb-wfRF3RDJfFWk-u5ATW1cJYpSktBcJxb93XCQMWaYsjJW7d-I39HOMyG3aNI~MfX9ttX4rdOoFtPDtB4fXtA82CRDEF51lSy98vlH6ZdYdTYs99L6mamFE1SGMC9cW~TeC4YXO272bNo-b7Nqco~a3R732JSOYYpoBV0bvXvaAODrTz86JGn-RW65fe2LAUK3u~bRxQlGyUllTG~OS9dsGJDkCBIxy0wkbsyJzTY7XUUGBCV~GmctETTDKcZI0t3azdz6Cm3sKmH1zevih5h2KFQtB8T2jt3~-soM9fvTTuFgIRCeC5MRlFwQExMoZmjXTc8WCI~YJA__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: netflix, apple, apple, prime, prime, prime
+--------------------------------------------------------------------------------
+Id: 84
+Title: The Lord of the Rings: The Return of the King
+Overview: In the conclusion of the epic trilogy, armies mass for a final battle that will decide the fate of the world. Meanwhile, Frodo, accompanied by Sam and Gollum, ventures deep into Mordor on his seemingly impossible quest to destroy the Ring of Power.
+Directors: Peter Jackson
+Genres: adventure, fantasy
+Rating: 88
+Year: 2003
+PosterUrl: https://cdn.movieofthenight.com/show/84/poster/vertical/en/480.jpg?Expires=1767826778&Signature=Jahcuw1Dhx1uxYpxpRyGqs2OMVclf2qIZToa-Ij9o7q2AWOeZ2QVllrZnk0WXPBaPo6l~OZx72-RUXz~RAqXCzC6JU5mrKydELzX0J4Ya06fwU4Vvdaa~3SR3jogHQLvAzHwX-LJH-GwvXeyW6BgBe9aU27GFs5kx0OdGc5FbHBHYUVOhNmjgjr2tuCe6kGZIhlwnK9evmd6T8E8YiBPUFHsA76Lqle45J-nd8uVbBNbjjUnqoWKFKc7bf8u67uAnxVa6FTXtEmq7zYG1uVoT-BfS8Iz5s10B5fxDsmp4ePLuNUeZZdhS-d4quPUVXNo5PmQnJXBCLU62b~FADqXqw__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: apple, apple, prime, hbo, prime, hulu, prime, prime, prime, hbo
+--------------------------------------------------------------------------------
+Id: 68
+Title: The Dark Knight
+Overview: With the help of Lieutenant Jim Gordon and new district attorney Harvey Dent, Batman sets out to destroy organised crime in Gotham City forever; but they soon find themselves prey to a rising criminal mastermind known as The Joker.
+Directors: Christopher Nolan
+Genres: action, crime, drama
+Rating: 88
+Year: 2008
+PosterUrl: https://cdn.movieofthenight.com/show/68/poster/vertical/en/480.jpg?Expires=1769132483&Signature=NlXhTDuSKBzrQ7IyyeoqmLSdR8DdZGF655a~96kb4wQxEBJQ-CHbByYx9RYLee4r7Jf~50H-BJt-rCeGfZ95OxW~5GHQVQ2KKPib12gU4Ucl~Hv6PiOBVpOGNW25UF0L2leFovk3MuCzhRwYvlW~~4GTJNeTq7LxovxJ-Ay8yWGjOlUMFp2RttF~K-4xNlGJZ9bQuIBvQ4xw-AGy8ApRv2lRNy4oTVKnJXk9kPHLuaRFwP2B8d8WvIfZE3u-ucufd2bBQUpGI5PsU6CeNYFCdXsOaaWOlnL86im6Ykc9XIViWFpnaHG9stti04CjXwZJnNFlDd0Qrg20K0i4pIGOYw__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: hbo, prime, prime, netflix
+--------------------------------------------------------------------------------
+Id: 301
+Title: The Good, the Bad and the Ugly
+Overview: In the heat of the Civil War, a lone wolf, a mercenary, and a Mexican outlaw engage in a lethal pursuit for $200,000 in buried Confederate gold.
+Directors: Sergio Leone
+Genres: adventure, western
+Rating: 87
+Year: 1966
+PosterUrl: https://cdn.movieofthenight.com/show/301/poster/vertical/en/480.jpg?Expires=1769129941&Signature=Kl4ByvQR96Zj~I3Kg~ettuEHIfDeENcxibzqt1rNyKGlqgnLQ0bnvJonB59pGmYzpvLsIbTS-~olKrdxG0qlKKRQKik2zDvSjlowQVqvTYXepG7dzFV~0UZmJDjRyPGVz4ZA-sv6RTV6Uu6m41bRPVBXcdcqsssX6PUm~wGUV46r5TBGh81Qf~RYNJqdgmyKhq1x6jqXUSDLL2sJqXSiIqkp7d8esG~tV6W2zzfF9dqPSrw2sqWmgXx3yPMITWazo5LMubX0ahEwc4rP-1XuBu9uV4-UO0Naa8hGj38wU8drgv65LQ-L0HQt5OavDiE1FtNg7hms6LxBUkmygdvtog__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime, prime, prime, prime, prime, plutotv, tubi, prime, prime, prime
+--------------------------------------------------------------------------------
+Id: 90
+Title: The Lord of the Rings: The Two Towers
+Overview: The Fellowship continue on their sacred quest to destroy the One Ring. Their destinies lie at two towers - Orthanc Tower in Isengard, where the corrupt wizard Saruman awaits, and Sauron's fortress at Barad-dur, deep within the dark lands of Mordor.
+Directors: Peter Jackson
+Genres: adventure, fantasy
+Rating: 87
+Year: 2002
+PosterUrl: https://cdn.movieofthenight.com/show/90/poster/vertical/en/480.jpg?Expires=1766860819&Signature=BUPX2J9UfgyRhfd~aexM~q06zfCn7IRKhhVH49MxOONjNBGJUi2UzYrHcMNfd6BmteEN4FDntLg1wrjJp598dFMS0vSMweprusquJZCYbkYDVb28gQqebj057q0lYWtriVgfzjuAMM91cgmzum8Vg0mnx44oy4b2XSHvgdTPNhs~4kar~fwMhmobX4RGJrt21fUSE8YGnWDgrL27~j~5lBATePoncB76jjLByc6CjCzM-lfBJVsVWUxrmnHXtKy6V1Kg4rnwl~QEFv6wu3QOdNhJVpLYE9120~T3mmiA6smM5p3Ds-XrZJGaYDMOTrs2HxJWIgQLuqpbzSbmm9fsAg__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime, prime, prime, prime, prime, prime, hbo, hulu, prime, prime, hbo, apple, apple
+--------------------------------------------------------------------------------
+Id: 80
+Title: The Lord of the Rings: The Fellowship of the Ring
+Overview: A hobbit named Frodo Baggins inherits a simple gold ring. When the wizard Gandalf discovers the ring has the power to enslave the entire world, they form a fellowship and embark on a quest to destroy it. Based on J.R.R. Tolkien's epic masterpiece.
+Directors: Peter Jackson
+Genres: adventure, fantasy
+Rating: 87
+Year: 2001
+PosterUrl: https://cdn.movieofthenight.com/show/80/poster/vertical/en/480.jpg?Expires=1769117522&Signature=crbOs9Qq1QEWgDHkDZdUrUNjqdiIxLPeNlNVHMpFyfD-qsZvD-eK9ie9l05n639GOC4788s3LMy9YAk6dEsrRQjpHI9s4Z3SYC7DvYCJ8J9V2rjFsyltv5Hf8PzTb3X4EnuUq9Vqwf3aRVpsVzLj~vPZcWYFD7z23PuhXdP-pwng1pviZRHJGluY7sWoqXK79y~SPjwde5DQlqwJF1QSHWScDIotC2ZgqjcC3B4ny7fz3e9TLwnfyBzllBDpp8CuWDMAp6jeli9nu9XSn2Pnu-wIucRf~bCVoZ90EMeiktUKDASLaGK~M5VvnP0sLtPQBtNTuwjX91Y05ABGFUQryg__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: apple, apple, prime, prime, prime, prime, prime, prime, prime, prime, prime, hbo, hulu, hbo
+--------------------------------------------------------------------------------
+Id: 76
+Title: Pulp Fiction
+Overview: The lives of a pair of low-rent hitmen, their boss’s sexy wife, and a desperate prizefighter intersect in a wildly exhilarating motion picture adventure that both thrills and amuses. WARNING: Contains High Impact Coarse Language, Violence, Drug Use.
+Directors: Quentin Tarantino
+Genres: crime
+Rating: 87
+Year: 1994
+PosterUrl: https://cdn.movieofthenight.com/show/76/poster/vertical/en/480.jpg?Expires=1769132361&Signature=JzNn9YIaJ6m9jEcT5MBJoMJbnb8DK2HGBBeyVtcZD0q9~OH-~O7DPk3swL1PbEdb7klKHplDo37la4vXgDxy7pbtkvvpNLXw-tojS54CzxurgAd5mfvyhuRAfsnbFrAe9yBKYAqpum2RBrcFwrGH5hzPChCw78JOPo306WSORS5mgpB1ZXcZYv9kGm0nyMdYIIpa5B3gDEvHWLDWqaUkGk5qdGpyZ6ZyzQyAHUi4ZyOQsYoHyUv6fThdIywQPcHT41q7BDrnYSKdfODBkPtSbwWlbbtFhbnw6FAmue8uF8Z7AgwYsdRvxkm2zxemt6jyc3BvUCTBRfPHAMDJM2aH-g__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: paramount, prime, prime, prime, prime
+--------------------------------------------------------------------------------
+Id: 74
+Title: Forrest Gump
+Overview: Tom Hanks gives an astonishing performance as Forrest Gump, a simple man who has a ringside seat for some of the most memorable events of the second half of the 20th century. Winner of six Academy Awards, including Best Picture.
+Directors: Robert Zemeckis
+Genres: drama, romance
+Rating: 87
+Year: 1994
+PosterUrl: https://cdn.movieofthenight.com/show/74/poster/vertical/en/480.jpg?Expires=1769132390&Signature=ghcALaeJIphA6-7K2Foq3cjtwM-fJImAhnXaXjPn0OcnolnhpPOXNK-g2cGhB-aV7JeuHPB4~9hAKuMuW8TsiqRFbyM-vuhiu-Q5k8hHmPnS6rQ9ebJFwVAcEvaz7OGEDdGVJLaDyHWi3Y7ZqeZifQWEf1UguNujuGLVMlcp8oXz4t0ueva4ET-fZeJrSCy~Q~zTsF92m9kxrhLyE5vHtDcSv97AxB3Y5dOQOEXqkvMHG2z7R7OqYuG1uMtLsOogn0NuOKrzboYeJlPkU2oGA3M82O2z1Qq5ddaVwW59C5PpNgnFgya0zKh4ZfmEZMa4dQpebGtnaKEH0tbzcE-ItQ__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, paramount, prime, prime
+--------------------------------------------------------------------------------
+Id: 72
+Title: Fight Club
+Overview: A detached man and his friend organize brutal, bare-knuckle boxing matches.
+Directors: David Fincher
+Genres: crime, drama, thriller
+Rating: 87
+Year: 1999
+PosterUrl: https://cdn.movieofthenight.com/show/72/poster/vertical/en/480.jpg?Expires=1769132469&Signature=Uc1B0sXbQovcahZx9mWv2yZiKSRX4CVBjm-g0EqHrv0ma5kYMKgqD0Ir~4vUWHpHRWYcA~QL6MfnGKSUD~2FlLMfnSC5pNW6mHZN7~ViQdHIClgrLZs-9HMFzX~SV3zgBJAJuKhUDzyvjC5C9jNe9a2RQVQ1w9ZVLqSmadt-RjgZsnLHzA~e4mu7jSKiBSKW0kqMEtIYNWtKYICjj0BxY-glIh1x09jzS4eZPQ2~QW~Em0UX7xCF24k3Zs-2WJL~g6kuIKcaalCIERldV~2n1a2t~FVEs8dMDoBS369Ehn62R5mZ-HUS-K-j-MV3Dgot0mbH3j1M4r3u7ZBwvZOIlA__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: hbo
+--------------------------------------------------------------------------------
+Id: 138
+Title: GoodFellas
+Overview: Based on a true story, a young man rises up the ranks of a mob family over several years, dabbling in drugs, heists and murders along the way.
+Directors: Martin Scorsese
+Genres: crime, drama
+Rating: 86
+Year: 1990
+PosterUrl: https://cdn.movieofthenight.com/show/138/poster/vertical/en/480.jpg?Expires=1769124610&Signature=YZG~xsPaz0yK8PQCeSftjlgTlI-pb9z9npqpPwdg3i9YBA1nPst0~y90hkN4PLARryuEoV3RCKjqj0~aJ4n-OB9l294~e9ZJkPuwPUedBbCvRqbUAcpx4T4R1qd6fzCCtvueIN7ePPdbaAjzxE2gy1SEHxq6t5svUrduDmFahFL5Xp4xP51wTRoI4CqHtKghnAFgtDw6Cd26Ruyp9odhHARg3kKyex1IAKBQK5A0ibZi4nDbXoBIeMthMS3hQZDLCE6rM7OnsaDyLg4wVSRNq1SKM8WLlmuEJ5zJk0kenfGtHbQi7F~8ojEpwg~Ky3RBPMsnLMlBaOT~BRaZ2RHkGw__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime, prime, prime, prime, hbo, prime, prime, prime, netflix, tubi
+--------------------------------------------------------------------------------
+Id: 124
+Title: The Empire Strikes Back
+Overview: Darth Vader launches a quest to crush the rebellion and Luke Skywalker undergoes Jedi training.
+Directors: Irvin Kershner
+Genres: action, adventure, fantasy
+Rating: 86
+Year: 1980
+PosterUrl: https://cdn.movieofthenight.com/show/124/poster/vertical/en/480.jpg?Expires=1769128509&Signature=UHrSO2-VWzmIHqaWAQFv8LNusxuzJx8Ibo~T9HIEDcQRwWpjIoNDtXEr9iffskliB9nxPKfOnF2o8tMEoQGneTLCrZ3nAIpM~qPAtbC0izLk7Lx3b8sGhZrs-lJBvDV8PEbA-hEf7lkyaMBSc2Em600vDaIaRcgHGcdbI0T6ximr8gkKxa6K~piDSwLISMJwmXNiAekTGFYp8K9M1q8HFIlprdwxAf7OFs5AvSI86LjM4O~6ZaZri9wgsbFMKwwTSA47bkcQ6g3wGpMmFHfoRHer7YF0r5ljCkulLRgiOfFmaJNzNfouVp-E5bJOFsCgHst~bgCD3B9fM-HQXvN0HA__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime, prime, disney
+--------------------------------------------------------------------------------
+Id: 86
+Title: Interstellar
+Overview: When environmental conditions render the Earth uninhabitable, a group of explorers traverse a wormhole in the galaxy to find humankind a new home.
+Directors: Christopher Nolan
+Genres: adventure, drama, scifi
+Rating: 86
+Year: 2014
+PosterUrl: https://cdn.movieofthenight.com/show/86/poster/vertical/en/480.jpg?Expires=1769132316&Signature=Y~tdeednO2TdjIuPLzD~YkO7HX6btCjxDEO4y7yEqNt6Z4K4INhABthWXMnXC4AqhB-TkfegEP0XjtG0uNwD3F5hlZy9oqm4GJs3w3RaOdAvKQHhO42KRe7-phzfq22PjpGXQxrFh4VkmoUiI0268lfkRx719Amkw64TO0xbKnlYmEpXjYezzHK5S9KI5HnDkPyAGRLrQZXHMhhQ0qyolDOJdhnYv0N2NUk9d8KYOoGjhZLpwVyMnJ-rB6wvJwuUo4ZS7SIZ1JMH-pSWeWWqnt6rd9CiLwaRPBfm16N8jrwUaOQ33LUQcFMN9XyYKyrLG2ZXCHQho2SlvoxOyY~jcQ__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: apple, paramount, prime, prime, prime, prime, tubi, prime, plutotv, apple, apple
+--------------------------------------------------------------------------------
+Id: 70
+Title: Inception
+Overview: Cobb, a skilled thief who commits corporate espionage by infiltrating the minds of his targets, is offered a task considered to be impossible: "inception", the implantation of another person's idea into a target's subconscious.
+Directors: Christopher Nolan
+Genres: action, adventure, scifi
+Rating: 86
+Year: 2010
+PosterUrl: https://cdn.movieofthenight.com/show/70/poster/vertical/en/480.jpg?Expires=1767042439&Signature=clPdPmZB2bbMov62VbZ6UfbdwwQDYtdJwmdHSYmtDGrlkzGNu4CSu9mNGjSTGNzuMPzysiv3Wu6Ypa7MwEoSWxseY4d0N8Kpyqm-vOCLLW6MMTNt-WEhzQTabTHELidfR4IYut-RwX-HNfOCT0iSVJ9tONV-Z27f-ndinkKOD9ap4BlE~bYacpSXOH63Za770Ru~oFmOqtMdicv2-CMHRknVUS4MVux-ghR7PdCa78BcKnLyDDocz1q79xZBe0DFpuoqIyWP-IwdBnvXFwjI4xeNjqi14HlgtD0Rs1lyNY7KX79dtBmHkRO4-jVjQ~mlsU74gUdp7fCKZIbJDQmoEQ__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime, prime, netflix, apple, apple, apple, hbo
+--------------------------------------------------------------------------------
+Id: 1071
+Title: Seven Samurai
+Overview: Influencing the likes of George Lucas and Steven Spielberg, Seven Samurai is a timeless tale of action & adventure. With their village raided every year by vicious bandits, a group of peasants hire seven warriors to protect them. Initially met with suspicion, the warriors eventually gain the trust of the peasants and they join forces to face the bandits.
+Directors: Akira Kurosawa
+Genres: action, drama
+Rating: 85
+Year: 1954
+PosterUrl: https://cdn.movieofthenight.com/show/1071/poster/vertical/en/480.jpg?Expires=1769118499&Signature=BVn-IPCCdMxJYaXrJDgIRRXuf5w2PRqKtdR1g5UerxI-n14A54BnhOI0CwNa0rQIJqB2TXlz1S8n6EU5pevOGWEY65xCndqhgSifknHvB2AUlFo5ARJoBPVwbeoWUzq2YbBYrBs6rVJ9Jz0QZnXRjXaFWahvXUV~nnsRQVmwiU8IdEMKJaplYyYKCQ2CGQrUnGm1zXfMmAeceSqddCh8zgqWxAErs2IbT6dms1GLib~iJ0Spv3zYRY2ZWu9hg5h-~2nxzVu-zlXRGaH~et~xQ1PGo1Pai-wNHXKpByWari-h4-~PrhU-J1vE7aqICJTUBCmYESju6ez~hoNuLO0sxg__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime, prime, prime, hbo, prime, prime, prime
+--------------------------------------------------------------------------------
+Id: 704
+Title: It's a Wonderful Life
+Overview: The holiday classic to define all holiday classics, It's A Wonderful Life follows George Bailey, a man with so many problems he is thinking about ending it all - only for an angel to show him what life would have been like if he had never existed.
+Directors: Frank Capra
+Genres: drama, family, fantasy
+Rating: 85
+Year: 1946
+PosterUrl: https://cdn.movieofthenight.com/show/704/poster/vertical/en/480.jpg?Expires=1769124724&Signature=JKVQm7F5RJpO2sLUsNyaLWczDgCXbLoCrQ3-sZIrx41Io62l1JXrpoh0g6xZe9arWmDBbm27Urw1CGjhvU9UNBGEAJiuBq-hkyRo8QtxcUhwmmEJtz5YutoJXqzu3YDwou503tEWgjvtHJQNVKMB9FqERKJ~VlfopHFY5ji7Torlp5X7Wkq13fomOatVJjo2YNRnyUTV4ieRcQHUqFq9GhYZx9G7diWI-0RmYV7W3zjcpxSK~B03VXmweklaFP99tLu6TPt-vqkFa2~lS4pfFq7zPaJNYMIPanEbCFWl~SbBOiGJqDIo1A9M0oNP~mWNiuGGFqm74SCjsFeX~K2eDA__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime, prime, prime, prime, prime, prime, prime, prime, prime, prime, prime, prime, prime, prime, prime, prime, prime
+--------------------------------------------------------------------------------
+Id: 354
+Title: Life Is Beautiful
+Overview: In this movie masterpiece, a charming but bumbling waiter wins the heart of the woman he loves, and creates a beautiful life for his young family, only to be challenged by the horrors of World War II.
+Directors: Roberto Benigni
+Genres: comedy, drama
+Rating: 85
+Year: 1997
+PosterUrl: https://cdn.movieofthenight.com/show/354/poster/vertical/en/480.jpg?Expires=1769129301&Signature=fEbc2YMWwF7SrpSXkC4aE6dmga9Vu9fXz4mG02Uv3~0mS1AY0qTux-VUup7gueq0hPslo1Aj8xwbYPCA7P8gN4OpPw-V8DJQ1lFkpVwS8ICU-9~QNL5UJsXhXxBRf9h0JX46PBfTTA~WjV1YwVM~76NCXg1dcAMpoNLz9zDvzCN7t4WkCnPm-l7tjPgx9p5x8aqHrZZgWNlbRNQzwggeUfBLN2lQMBYFb7lYDX6XW39EWKzAAHQcN6b3Upa24wFs003HsDsv0yBgpdmdsZoeaB~gFkk4vu0lr9iDqyjNe6e5EHizpXgXEJq~HDxthyHncRBOzn-Rl5ahhBpuVbmfdQ__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime
+--------------------------------------------------------------------------------
+Id: 311
+Title: City of God
+Overview: The streets of the world's most notorious slum, Rio de Janeiro's City of God, are a place where combat photographers fear to tread, police rarely go and residents are lucky if they live to the age of 20. In the midst of the oppressive crime and violence, a frail and scared young boy will grow up to discover that he can view the harsh realities of his surroundings with an artistic eye.
+Directors: Fernando Meirelles
+Genres: crime, drama
+Rating: 85
+Year: 2002
+PosterUrl: https://cdn.movieofthenight.com/show/311/poster/vertical/en/480.jpg?Expires=1769129691&Signature=f69ELSzlKZCb1H0F1l2ojm93Pe9BZ0IUFflPD9DHduTXnuI9aWF7GDA5LaIMCgyppqE9d5BT3673fkwJWvJkVsSrIXP~uXQ9YAuC4S3mz2DGJmdDGKz-s~ycLkglcaY4lUsV5fiVa-li-vXjx5xHtz9EbQOAjhDqDRmbJGfDhidklv2AOJ71wA9puxpAAF93oRBFpZM2w~9fNIsBM3vC1GBUZeKFXP~senZIpAZ24AnkmURhF5NXUUT5U6qk9U2YvSvvCYUGSIgi-rTa-aHPMS2kCHrh4VsyKXlG~o1JgUCPKhrWtFde1i~VtqI1kV2DcVj7sHl8~K1nYdsor2fU8g__&Key-Pair-Id=KK4HN3OO4AT5R
+Services: prime, prime, prime, prime, prime
+--------------------------------------------------------------------------------
