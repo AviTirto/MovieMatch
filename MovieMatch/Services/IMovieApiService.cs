@@ -1,9 +1,10 @@
 using MovieMatch.Enums;
+using MovieMatch.Models;
 
 namespace MovieMatch.Services
 {
     public interface IMovieApiService
     {
-        Task<string> GetMoviesAsync(string[] services, ShowType showType, string? cursor = null);
+        Task<List<Movie>> GetMoviesAsync(string[] services, ShowType showType, string? cursor = null);
     }
 }

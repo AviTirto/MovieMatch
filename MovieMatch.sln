@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieMatch", "MovieMatch\MovieMatch.csproj", "{7CACE9F5-660F-40D2-9C46-33F19DFD63D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieMatch.Tests", "MovieMatch.Tests\MovieMatch.Tests.csproj", "{DDC75BA6-B176-4051-8FB0-97F63C6EF6E0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{7CACE9F5-660F-40D2-9C46-33F19DFD63D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CACE9F5-660F-40D2-9C46-33F19DFD63D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CACE9F5-660F-40D2-9C46-33F19DFD63D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDC75BA6-B176-4051-8FB0-97F63C6EF6E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDC75BA6-B176-4051-8FB0-97F63C6EF6E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDC75BA6-B176-4051-8FB0-97F63C6EF6E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDC75BA6-B176-4051-8FB0-97F63C6EF6E0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

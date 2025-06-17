@@ -25,7 +25,7 @@ namespace MovieMatch.Services.Game
             }
 
             // Fetch movies from the API
-            var response = await _apiService.GetMoviesAsync([], room.ShowType);
+            var json = await _apiService.GetMoviesAsync([], room.ShowType);
         }
     }
 }

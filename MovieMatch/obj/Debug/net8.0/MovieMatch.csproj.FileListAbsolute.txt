@@ -32,3 +32,11 @@
 /Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/obj/Debug/net8.0/MovieMatch.pdb
 /Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/obj/Debug/net8.0/MovieMatch.genruntimeconfig.cache
 /Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/obj/Debug/net8.0/ref/MovieMatch.dll
+/Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/bin/Debug/net8.0/Microsoft.Extensions.Diagnostics.Abstractions.dll
+/Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/bin/Debug/net8.0/Microsoft.Extensions.Hosting.Abstractions.dll
+/Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/bin/Debug/net8.0/Microsoft.Extensions.ObjectPool.dll
+/Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Users/avitirto/Documents/AppDev/MovieMatch/MovieMatch/bin/Debug/net8.0/System.Net.WebSockets.WebSocketProtocol.dll
