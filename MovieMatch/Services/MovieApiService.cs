@@ -2,6 +2,7 @@ using System.Web;
 using MovieMatch.Enums;
 using System.Text.Json;
 using MovieMatch.Models;
+using MovieMatch.DTOs;
 
 namespace MovieMatch.Services
 {
@@ -18,7 +19,7 @@ namespace MovieMatch.Services
             _apiKey = configuration["ApiKey"] ?? throw new ArgumentNullException("API Key", "API Key is not configured.");
         }
 
-        public async Task<List<Movie>> GetMoviesAsync(string[] services, ShowType showType, string? cursor = null)
+        public async Task<MovieApiResult> GetMoviesAsync(string[] services, ShowType showType, string? cursor = null)
         {
             var query = HttpUtility.ParseQueryString(string.Empty);
             query["country"] = "us";
@@ -29,6 +30,11 @@ namespace MovieMatch.Services
             if (showType == ShowType.Movie)
             {
                 query["show_type"] = "movie";
+            }
+
+            if (cursor != null)
+            {
+                query["cursor"] = cursor;
             }
 
             var url = $"{BaseUrl}?{query}";
@@ -97,11 +103,16 @@ namespace MovieMatch.Services
                                 .ToList()
                 };
 
-
                 movies.Add(movie);
             }
 
-            return movies;
+            var nextCursor = root.GetProperty("cursor").GetString();
+
+            return new MovieApiResult
+            {
+                Movies = movies,
+                Cursor = nextCursor
+            };
         }
     }
 }

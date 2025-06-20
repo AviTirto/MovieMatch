@@ -1,4 +1,5 @@
 using MovieMatch.Models;
+using MovieMatch.DTOs;
 
 namespace MovieMatch.Services.Game
 {
@@ -23,9 +24,9 @@ namespace MovieMatch.Services.Game
             }
 
             // Fetch movies from the API
-            var movies = await _apiService.GetMoviesAsync([], room.ShowType);
+            var ApiResult = await _apiService.GetMoviesAsync([], room.ShowType);
 
-            return movies;
+            return ApiResult.Movies;
         }
     }
 }
