@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.SignalR;
 using MovieMatch.Services.Game;
+using MovieMatch.Services;
 using MovieMatch.Models;
 
 namespace MovieMatch.Hubs
@@ -7,81 +8,102 @@ namespace MovieMatch.Hubs
     public class RoomHub : Hub
     {
         private readonly IGameStartService _gameStartService;
-        private static readonly Dictionary<string, HashSet<string>> RoomConnections = new();
-        private static readonly Dictionary<string, HashSet<string>> RoomReadyStatus = new();
+        private readonly IRoomStore _roomStore;
 
-        public RoomHub(IGameStartService gameStartService)
+        public RoomHub(IGameStartService gameStartService, IRoomStore roomStore)
         {
             _gameStartService = gameStartService;
+            _roomStore = roomStore;
         }
 
-        public async Task JoinRoomGroup(string roomCode)
+        public async Task JoinRoomGroup(string roomCode, string userName)
         {
+
             await Groups.AddToGroupAsync(Context.ConnectionId, roomCode);
 
-            if (!RoomConnections.ContainsKey(roomCode))
-                RoomConnections[roomCode] = new();
+            var room = _roomStore.GetRoom(roomCode);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                return;
+            }
 
-            RoomConnections[roomCode].Add(Context.ConnectionId);
+            var person = room.People.FirstOrDefault(p => p.Name == userName);
+            if (person == null)
+            {
+                await Clients.Caller.SendAsync("UserNotFound", userName);
+                return;
+            }
+
+            person.ConnectionId = Context.ConnectionId;
+            person.IsReady = false;
 
             await Clients.Group(roomCode).SendAsync("UserJoined", Context.ConnectionId);
         }
 
-        public async Task LeaveRoomGroup(string roomCode)
+        public async Task Ready(string roomCode)
         {
-            await Groups.RemoveFromGroupAsync(Context.ConnectionId, roomCode);
-
-            if (RoomConnections.TryGetValue(roomCode, out var connections))
+            var room = _roomStore.GetRoom(roomCode);
+            if(room == null)
             {
-                connections.Remove(Context.ConnectionId);
-                if (connections.Count == 0)
-                {
-                    RoomConnections.Remove(roomCode);
-                    RoomReadyStatus.Remove(roomCode);
-                }
+                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                return;
             }
 
+            var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
+            if (person == null)
+            {
+                await Clients.Caller.SendAsync("UserNotFound", Context.ConnectionId);
+                return;
+            }
+
+            person.IsReady = true;
+            await Clients.Group(roomCode).SendAsync("UserReady", Context.ConnectionId);
+        }
+
+        public async Task LeaveRoomGroup(string roomCode)
+        {
+            var room = _roomStore.GetRoom(roomCode);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                return;
+            }
+
+            var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
+            if (person == null)
+            {
+                await Clients.Caller.SendAsync("UserNotFound", Context.ConnectionId);
+                return;
+            }
+           
+            room.People.Remove(person);
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, roomCode);
             await Clients.Group(roomCode).SendAsync("UserLeft", Context.ConnectionId);
         }
 
         public async Task StartGame(string roomCode)
         {
-            // Notify all users to switch screens
-            await Clients.Group(roomCode).SendAsync("GameStarted");
-
-            // Clear any previous readiness state
-            RoomReadyStatus[roomCode] = new();
-        }
-
-        public async Task ReadyUp(string roomCode)
-        {
-            if (!RoomReadyStatus.ContainsKey(roomCode))
-                RoomReadyStatus[roomCode] = new();
-
-            RoomReadyStatus[roomCode].Add(Context.ConnectionId);
-
-            if (RoomConnections.TryGetValue(roomCode, out var allConnections) &&
-                RoomReadyStatus[roomCode].SetEquals(allConnections))
+            var room = _roomStore.GetRoom(roomCode);
+            if (room == null)
             {
-                var movies = await _gameStartService.StartGameAsync(roomCode);
-                await Clients.Group(roomCode).SendAsync("ReceiveMovies", movies);
+                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                return;
             }
+
+            if (!room.People.All(p => p.IsReady))
+            {
+                await Clients.Caller.SendAsync("NotAllReady", roomCode);
+            }
+
+            var movies = await _gameStartService.StartGameAsync(roomCode);
+            await Clients.Group(roomCode).SendAsync("GameStarted");
+            await Clients.Group(roomCode).SendAsync("RecieveMovies", movies);
         }
 
         public async Task Swipe(string roomCode, string movieId)
         {
-            // Placeholder for swipe logic
-        }
-
-        public override async Task OnDisconnectedAsync(Exception? exception)
-        {
-            foreach (var room in RoomConnections.Keys.ToList())
-            {
-                RoomConnections[room].Remove(Context.ConnectionId);
-                RoomReadyStatus[room]?.Remove(Context.ConnectionId);
-            }
-
-            await base.OnDisconnectedAsync(exception);
+            
         }
     }
 }
