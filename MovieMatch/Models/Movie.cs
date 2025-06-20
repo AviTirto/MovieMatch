@@ -2,7 +2,7 @@ namespace MovieMatch.Models
 {
     public class Movie
     {
-        public string? Id { get; set; }
+        public string Id { get; set; }
         public string? Title { get; set; }
         public string? Overview { get; set; }
         public List<string> Director { get; set; } = new();
