@@ -2,7 +2,7 @@ using System.Web;
 using MovieMatch.Enums;
 using System.Text.Json;
 using MovieMatch.Models;
-using MovieMatch.DTOs;
+using MovieMatch.Models.DTOs;
 
 namespace MovieMatch.Services
 {

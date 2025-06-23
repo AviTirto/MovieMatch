@@ -1,6 +1,5 @@
 using MovieMatch.Enums;
-using MovieMatch.Models;
-using MovieMatch.DTOs;
+using MovieMatch.Models.DTOs;
 
 namespace MovieMatch.Services
 {

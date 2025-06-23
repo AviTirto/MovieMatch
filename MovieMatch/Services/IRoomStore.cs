@@ -6,6 +6,7 @@ namespace MovieMatch.Services
     {
         Room? GetRoom(string roomId);
         void SaveRoom(Room room);
+        void RemoveRoom(string roomId);
         IEnumerable<Room> GetAllRooms();
     }
 }

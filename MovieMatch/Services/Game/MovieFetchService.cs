@@ -1,6 +1,6 @@
 using MovieMatch.Models;
 using MovieMatch.Services;
-using MovieMatch.DTOs;
+using MovieMatch.Models.DTOs;
 
 namespace MovieMatch.Services.Game
 {

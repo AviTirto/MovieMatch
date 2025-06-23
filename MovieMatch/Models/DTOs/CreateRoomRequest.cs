@@ -1,7 +1,7 @@
 using MovieMatch.Enums;
 using System.ComponentModel.DataAnnotations;
 
-namespace MovieMatch.DTOs
+namespace MovieMatch.Models.DTOs
 {
     public class CreateRoomRequest
     {

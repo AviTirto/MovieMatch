@@ -1,46 +1,84 @@
 using Microsoft.AspNetCore.SignalR;
 using MovieMatch.Services.Game;
 using MovieMatch.Services;
+using MovieMatch.Enums;
 using MovieMatch.Models;
-using MovieMatch.Constants;
 
 namespace MovieMatch.Hubs
 {
     public class RoomHub : Hub
     {
-        private readonly IGameStartService _gameStartService;
         private readonly IRoomStore _roomStore;
         private readonly IMovieFetchService _movieFetchService;
 
-        public RoomHub(IGameStartService gameStartService, IRoomStore roomStore, IMovieFetchService movieFetchService)
+        public RoomHub(IRoomStore roomStore, IMovieFetchService movieFetchService)
         {
-            _gameStartService = gameStartService;
             _roomStore = roomStore;
             _movieFetchService = movieFetchService;
         }
 
-        public async Task JoinRoomGroup(string roomCode, string userName)
+        public async Task CreateRoom(string username, ShowType showType, string[] services)
         {
-            await Groups.AddToGroupAsync(Context.ConnectionId, roomCode);
+            var room = new Room
+            {
+                Services = services,
+                ShowType = showType,
+            };
 
+            room.People.Add(new Person { Name = username, ConnectionId = Context.ConnectionId, IsReady = false });
+
+            _roomStore.SaveRoom(room);
+
+            await Groups.AddToGroupAsync(Context.ConnectionId, room.Code);
+            await Clients.Caller.SendAsync("RoomMemberUpdate", room.People);
+        }
+
+        public async Task JoinRoom(string roomCode, string username)
+        {
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
+                await Clients.Caller.SendAsync("RoomNotFound");
                 return;
             }
 
-            var person = room.People.FirstOrDefault(p => p.Name == userName);
-            if (person == null)
+            var person = new Person
             {
-                await Clients.Caller.SendAsync(HubMessages.UserNotFound, userName);
+                Name = username,
+                ConnectionId = Context.ConnectionId,
+                IsReady = false
+            };
+
+            room.People.Add(person);
+
+            await Groups.AddToGroupAsync(Context.ConnectionId, room.Code);
+            await Clients.Group(room.Code).SendAsync("RoomMemberUpdate", room.People);
+
+        }
+
+        public async Task LeaveRoom(string roomCode)
+        {
+            var room = _roomStore.GetRoom(roomCode);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync("RoomNotFound");
                 return;
             }
 
-            person.ConnectionId = Context.ConnectionId;
-            person.IsReady = false;
-
-            await Clients.Group(roomCode).SendAsync(HubMessages.UserJoined, Context.ConnectionId);
+            var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
+            if (person != null)
+            {
+                room.People.Remove(person);
+                if (room.People.Count == 0)
+                {
+                    _roomStore.RemoveRoom(roomCode);
+                }
+                else
+                {
+                    await Groups.RemoveFromGroupAsync(Context.ConnectionId, roomCode);
+                    await Clients.Group(roomCode).SendAsync("RoomMemberUpdate", room.People);
+                }
+            }
         }
 
         public async Task Ready(string roomCode)
@@ -48,111 +86,17 @@ namespace MovieMatch.Hubs
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
+                await Clients.Caller.SendAsync("RoomNotFound");
                 return;
             }
 
             var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
-            if (person == null)
+            if (person != null)
             {
-                await Clients.Caller.SendAsync(HubMessages.UserNotFound, Context.ConnectionId);
-                return;
+                person.IsReady = true;
+
+                await Clients.Group(roomCode).SendAsync("RoomMemberUpdate", room.People);
             }
-
-            person.IsReady = true;
-            await Clients.Group(roomCode).SendAsync(HubMessages.UserReady, Context.ConnectionId);
-        }
-
-        public async Task LeaveRoomGroup(string roomCode)
-        {
-            var room = _roomStore.GetRoom(roomCode);
-            if (room == null)
-            {
-                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
-                return;
-            }
-
-            var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
-            if (person == null)
-            {
-                await Clients.Caller.SendAsync(HubMessages.UserNotFound, Context.ConnectionId);
-                return;
-            }
-
-            room.People.Remove(person);
-            await Groups.RemoveFromGroupAsync(Context.ConnectionId, roomCode);
-            await Clients.Group(roomCode).SendAsync(HubMessages.UserLeft, Context.ConnectionId);
-        }
-
-        public async Task StartGame(string roomCode)
-        {
-            var room = _roomStore.GetRoom(roomCode);
-            if (room == null)
-            {
-                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
-                return;
-            }
-
-            if (!room.People.All(p => p.IsReady))
-            {
-                await Clients.Caller.SendAsync(HubMessages.NotAllReady, roomCode);
-                return;
-            }
-
-            var movies = await _gameStartService.StartGameAsync(roomCode);
-            await Clients.Group(roomCode).SendAsync(HubMessages.GameStarted);
-            await Clients.Group(roomCode).SendAsync(HubMessages.RecieveMovies, movies);
-        }
-
-        public async Task Swipe(string roomCode, Movie movie)
-        {
-            var room = _roomStore.GetRoom(roomCode);
-            if (room == null)
-            {
-                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
-                return;
-            }
-
-            var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
-            if (person == null)
-            {
-                await Clients.Caller.SendAsync(HubMessages.UserNotFound, Context.ConnectionId);
-                return;
-            }
-
-            if (!room.SwipeMap.TryGetValue(movie.Id, out var match))
-            {
-                match = new MatchMetadata
-                {
-                    Movie = movie,
-                    LikedBy = new List<string>()
-                };
-
-                room.SwipeMap[movie.Id] = match;
-            }
-
-            if (!match.LikedBy.Contains(person.Name))
-            {
-                match.LikedBy.Add(person.Name);
-            }
-
-            if (match.LikedBy.Count == room.People.Count)
-            {
-                await Clients.Group(roomCode).SendAsync(HubMessages.MatchFound, match.Movie);
-            }
-        }
-
-        public async Task RequestMoreMovies(string roomCode)
-        {
-            var room = _roomStore.GetRoom(roomCode);
-            if (room == null)
-            {
-                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
-                return;
-            }
-
-            var movies = await _movieFetchService.FetchNextBatchAsync(room);
-            await Clients.Group(roomCode).SendAsync(HubMessages.NewMovieBatch, movies);
         }
     }
 }

@@ -1,6 +1,4 @@
-using MovieMatch.Models;
-
-namespace MovieMatch.DTOs
+namespace MovieMatch.Models.DTOs
 {
     public class MovieApiResult
     {

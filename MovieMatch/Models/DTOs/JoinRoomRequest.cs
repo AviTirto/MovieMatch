@@ -1,4 +1,4 @@
-namespace MovieMatch.DTOs
+namespace MovieMatch.Models.DTOs
 {
     public class JoinRoomRequest
     {

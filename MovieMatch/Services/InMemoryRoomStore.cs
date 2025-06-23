@@ -17,6 +17,11 @@ namespace MovieMatch.Services
             _rooms[room.Code] = room;
         }
 
+        public void RemoveRoom(string roomId)
+        {
+            _rooms.Remove(roomId);
+        }
+
         public IEnumerable<Room> GetAllRooms()
         {
             return _rooms.Values;
