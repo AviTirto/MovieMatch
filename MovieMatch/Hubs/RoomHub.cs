@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.SignalR;
 using MovieMatch.Services.Game;
 using MovieMatch.Services;
 using MovieMatch.Models;
+using MovieMatch.Constants;
 
 namespace MovieMatch.Hubs
 {
@@ -20,27 +21,26 @@ namespace MovieMatch.Hubs
 
         public async Task JoinRoomGroup(string roomCode, string userName)
         {
-
             await Groups.AddToGroupAsync(Context.ConnectionId, roomCode);
 
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
                 return;
             }
 
             var person = room.People.FirstOrDefault(p => p.Name == userName);
             if (person == null)
             {
-                await Clients.Caller.SendAsync("UserNotFound", userName);
+                await Clients.Caller.SendAsync(HubMessages.UserNotFound, userName);
                 return;
             }
 
             person.ConnectionId = Context.ConnectionId;
             person.IsReady = false;
 
-            await Clients.Group(roomCode).SendAsync("UserJoined", Context.ConnectionId);
+            await Clients.Group(roomCode).SendAsync(HubMessages.UserJoined, Context.ConnectionId);
         }
 
         public async Task Ready(string roomCode)
@@ -48,19 +48,19 @@ namespace MovieMatch.Hubs
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
                 return;
             }
 
             var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
             if (person == null)
             {
-                await Clients.Caller.SendAsync("UserNotFound", Context.ConnectionId);
+                await Clients.Caller.SendAsync(HubMessages.UserNotFound, Context.ConnectionId);
                 return;
             }
 
             person.IsReady = true;
-            await Clients.Group(roomCode).SendAsync("UserReady", Context.ConnectionId);
+            await Clients.Group(roomCode).SendAsync(HubMessages.UserReady, Context.ConnectionId);
         }
 
         public async Task LeaveRoomGroup(string roomCode)
@@ -68,20 +68,20 @@ namespace MovieMatch.Hubs
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
                 return;
             }
 
             var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
             if (person == null)
             {
-                await Clients.Caller.SendAsync("UserNotFound", Context.ConnectionId);
+                await Clients.Caller.SendAsync(HubMessages.UserNotFound, Context.ConnectionId);
                 return;
             }
 
             room.People.Remove(person);
             await Groups.RemoveFromGroupAsync(Context.ConnectionId, roomCode);
-            await Clients.Group(roomCode).SendAsync("UserLeft", Context.ConnectionId);
+            await Clients.Group(roomCode).SendAsync(HubMessages.UserLeft, Context.ConnectionId);
         }
 
         public async Task StartGame(string roomCode)
@@ -89,18 +89,19 @@ namespace MovieMatch.Hubs
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
                 return;
             }
 
             if (!room.People.All(p => p.IsReady))
             {
-                await Clients.Caller.SendAsync("NotAllReady", roomCode);
+                await Clients.Caller.SendAsync(HubMessages.NotAllReady, roomCode);
+                return;
             }
 
             var movies = await _gameStartService.StartGameAsync(roomCode);
-            await Clients.Group(roomCode).SendAsync("GameStarted");
-            await Clients.Group(roomCode).SendAsync("RecieveMovies", movies);
+            await Clients.Group(roomCode).SendAsync(HubMessages.GameStarted);
+            await Clients.Group(roomCode).SendAsync(HubMessages.RecieveMovies, movies);
         }
 
         public async Task Swipe(string roomCode, Movie movie)
@@ -108,14 +109,14 @@ namespace MovieMatch.Hubs
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
                 return;
             }
 
             var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
             if (person == null)
             {
-                await Clients.Caller.SendAsync("UserNotFound", Context.ConnectionId);
+                await Clients.Caller.SendAsync(HubMessages.UserNotFound, Context.ConnectionId);
                 return;
             }
 
@@ -137,7 +138,7 @@ namespace MovieMatch.Hubs
 
             if (match.LikedBy.Count == room.People.Count)
             {
-                await Clients.Group(roomCode).SendAsync("MatchFound", match.Movie);
+                await Clients.Group(roomCode).SendAsync(HubMessages.MatchFound, match.Movie);
             }
         }
 
@@ -146,12 +147,12 @@ namespace MovieMatch.Hubs
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Caller.SendAsync("RoomNotFound", roomCode);
+                await Clients.Caller.SendAsync(HubMessages.RoomNotFound, roomCode);
                 return;
             }
 
             var movies = await _movieFetchService.FetchNextBatchAsync(room);
-            await Clients.Group(roomCode).SendAsync("NewMovieBatch", movies);
+            await Clients.Group(roomCode).SendAsync(HubMessages.NewMovieBatch, movies);
         }
     }
 }
