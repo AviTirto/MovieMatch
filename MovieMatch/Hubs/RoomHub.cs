@@ -100,5 +100,23 @@ namespace MovieMatch.Hubs
                 await Clients.Group(roomCode).SendAsync("RoomMemberUpdate", room.People);
             }
         }
+
+        public async Task RequestMovies(string roomCode)
+        {
+            var room = _roomStore.GetRoom(roomCode);
+            if (room == null)
+            {
+                await Clients.Group(roomCode).SendAsync("RoomNotFound");
+                return;
+            }
+
+            var movies = _movieFetchService.FetchNextBatchAsync(room);
+
+            await Clients.Group(roomCode).SendAsync("RecieveMovies", movies);
+        }
+
+        public async Task Like(string roomCode) {
+
+        }
     }
 }
