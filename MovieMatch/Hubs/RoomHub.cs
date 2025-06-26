@@ -3,6 +3,8 @@ using MovieMatch.Services.Game;
 using MovieMatch.Services;
 using MovieMatch.Enums;
 using MovieMatch.Models;
+using MovieMatch.Models.DTOs;
+using System.Text.RegularExpressions;
 
 namespace MovieMatch.Hubs
 {
@@ -101,12 +103,26 @@ namespace MovieMatch.Hubs
             }
         }
 
+        public async Task StartGame(string roomCode)
+        {
+            var room = _roomStore.GetRoom(roomCode);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync("RoomNotFound");
+                return;
+            }
+
+            var movies = _movieFetchService.FetchNextBatchAsync(room);
+
+            await Clients.Group(roomCode).SendAsync("StartGame", movies);
+        }
+
         public async Task RequestMovies(string roomCode)
         {
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
             {
-                await Clients.Group(roomCode).SendAsync("RoomNotFound");
+                await Clients.Caller.SendAsync("RoomNotFound");
                 return;
             }
 
@@ -115,8 +131,36 @@ namespace MovieMatch.Hubs
             await Clients.Group(roomCode).SendAsync("RecieveMovies", movies);
         }
 
-        public async Task Like(string roomCode) {
+        public async Task Like(string roomCode, Movie movie)
+        {
+            var room = _roomStore.GetRoom(roomCode);
+            if (room == null)
+            {
+                await Clients.Caller.SendAsync("RoomNotFound");
+                return;
+            }
 
+            var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
+            if (person != null)
+            {
+                if (room.SwipeMap.TryGetValue(movie.Id, out var existingMatch))
+                {
+                    existingMatch.LikedBy.Add(person.Name);
+                    if (existingMatch.LikedBy.Count == room.People.Count)
+                    {
+                        await Clients.Group(roomCode).SendAsync("MatchFound", movie);
+                    }
+                }
+                else
+                {
+                    var match = new MatchMetadata
+                    {
+                        Movie = movie,
+                    };
+                    match.LikedBy.Add(person.Name);
+                    room.SwipeMap[movie.Id] = match;
+                }
+            }
         }
     }
 }
