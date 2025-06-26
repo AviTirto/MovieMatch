@@ -30,6 +30,7 @@ namespace MovieMatch.Hubs
             _roomStore.SaveRoom(room);
 
             await Groups.AddToGroupAsync(Context.ConnectionId, room.Code);
+            await Clients.Caller.SendAsync("RoomJoined", room.Code);
             await Clients.Caller.SendAsync("RoomMemberUpdate", room.People);
         }
 
@@ -52,6 +53,7 @@ namespace MovieMatch.Hubs
             room.People.Add(person);
 
             await Groups.AddToGroupAsync(Context.ConnectionId, room.Code);
+            await Clients.Caller.SendAsync("RoomCreated", roomCode);
             await Clients.Group(room.Code).SendAsync("RoomMemberUpdate", room.People);
 
         }
@@ -81,7 +83,7 @@ namespace MovieMatch.Hubs
             }
         }
 
-        public async Task Ready(string roomCode)
+        public async Task ToggleReady(string roomCode)
         {
             var room = _roomStore.GetRoom(roomCode);
             if (room == null)
@@ -93,7 +95,7 @@ namespace MovieMatch.Hubs
             var person = room.People.FirstOrDefault(p => p.ConnectionId == Context.ConnectionId);
             if (person != null)
             {
-                person.IsReady = true;
+                person.IsReady = !person.IsReady;
 
                 await Clients.Group(roomCode).SendAsync("RoomMemberUpdate", room.People);
             }
