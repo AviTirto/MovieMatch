@@ -32,7 +32,7 @@ namespace MovieMatch.Services
                 query["show_type"] = "movie";
             }
 
-            if (cursor != null)
+            if (!string.IsNullOrEmpty(cursor))
             {
                 query["cursor"] = cursor;
             }
@@ -51,62 +51,119 @@ namespace MovieMatch.Services
             using var doc = JsonDocument.Parse(body);
             var root = doc.RootElement;
 
-            List<Movie> movies = new();
-            var shows = root.GetProperty("shows");
+            var movies = new List<Movie>();
 
-            foreach (var show in shows.EnumerateArray())
+            if (root.TryGetProperty("shows", out var shows) && shows.ValueKind == JsonValueKind.Array)
             {
-                int rating = 0;
-                if (show.TryGetProperty("rating", out var ratingProp))
+                foreach (var show in shows.EnumerateArray())
                 {
-                    if (ratingProp.ValueKind == JsonValueKind.Number)
-                        rating = ratingProp.GetInt32();
-                    else if (ratingProp.ValueKind == JsonValueKind.String && int.TryParse(ratingProp.GetString(), out var r))
-                        rating = r;
+                    // Safe parsing helpers
+                    static string? GetStringSafe(JsonElement elem, string propertyName)
+                    {
+                        return elem.TryGetProperty(propertyName, out var prop) && prop.ValueKind == JsonValueKind.String ? prop.GetString() : null;
+                    }
+
+                    static int GetIntSafe(JsonElement elem, string propertyName)
+                    {
+                        if (elem.TryGetProperty(propertyName, out var prop))
+                        {
+                            if (prop.ValueKind == JsonValueKind.Number && prop.TryGetInt32(out int val))
+                                return val;
+                            if (prop.ValueKind == JsonValueKind.String && int.TryParse(prop.GetString(), out val))
+                                return val;
+                        }
+                        return 0;
+                    }
+
+                    static List<string> GetStringListSafe(JsonElement elem, string propertyName)
+                    {
+                        var list = new List<string>();
+                        if (elem.TryGetProperty(propertyName, out var arrayProp) && arrayProp.ValueKind == JsonValueKind.Array)
+                        {
+                            foreach (var item in arrayProp.EnumerateArray())
+                            {
+                                if (item.ValueKind == JsonValueKind.String)
+                                    list.Add(item.GetString()!);
+                            }
+                        }
+                        return list;
+                    }
+
+                    static List<string> GetNestedStringListSafe(JsonElement elem, string arrayPropertyName, string nestedPropertyName)
+                    {
+                        var list = new List<string>();
+                        if (elem.TryGetProperty(arrayPropertyName, out var arrayProp) && arrayProp.ValueKind == JsonValueKind.Array)
+                        {
+                            foreach (var item in arrayProp.EnumerateArray())
+                            {
+                                if (item.TryGetProperty(nestedPropertyName, out var nestedProp) && nestedProp.ValueKind == JsonValueKind.String)
+                                {
+                                    list.Add(nestedProp.GetString()!);
+                                }
+                            }
+                        }
+                        return list;
+                    }
+
+                    static string? GetNestedPropertyStringSafe(JsonElement elem, params string[] propertyPath)
+                    {
+                        JsonElement current = elem;
+                        foreach (var prop in propertyPath)
+                        {
+                            if (!current.TryGetProperty(prop, out current))
+                                return null;
+                        }
+                        return current.ValueKind == JsonValueKind.String ? current.GetString() : null;
+                    }
+
+                    var movie = new Movie
+                    {
+                        Id = GetStringSafe(show, "id"),
+                        Title = GetStringSafe(show, "title"),
+                        Overview = GetStringSafe(show, "overview"),
+                        Director = GetStringListSafe(show, "directors"),
+                        Genres = new List<string>(), 
+                        Rating = GetIntSafe(show, "rating"),
+                        Year = GetIntSafe(show, "releaseYear"),
+                        PosterUrl = GetNestedPropertyStringSafe(show, "imageSet", "verticalPoster", "w480"),
+                        Services = new List<string>() 
+                    };
+
+                    if (show.TryGetProperty("genres", out var genresProp) && genresProp.ValueKind == JsonValueKind.Array)
+                    {
+                        foreach (var genre in genresProp.EnumerateArray())
+                        {
+                            var genreId = GetStringSafe(genre, "id");
+                            if (genreId != null)
+                                movie.Genres.Add(genreId);
+                        }
+                    }
+
+                    if (show.TryGetProperty("streamingOptions", out var streamingOptions) &&
+                        streamingOptions.TryGetProperty("us", out var usOptions) &&
+                        usOptions.ValueKind == JsonValueKind.Array)
+                    {
+                        foreach (var option in usOptions.EnumerateArray())
+                        {
+                            var serviceId = GetNestedPropertyStringSafe(option, "service", "id");
+                            if (serviceId != null)
+                                movie.Services.Add(serviceId);
+                        }
+                    }
+
+                    if (services != null && services.Length > 0)
+                    {
+                        if (!movie.Services.Any(svc => services.Contains(svc, StringComparer.OrdinalIgnoreCase)))
+                            continue;
+                    }
+
+                    movies.Add(movie);
                 }
-
-                int year = 0;
-                if (show.TryGetProperty("releaseYear", out var yearProp))
-                {
-                    if (yearProp.ValueKind == JsonValueKind.Number)
-                        year = yearProp.GetInt32();
-                    else if (yearProp.ValueKind == JsonValueKind.String && int.TryParse(yearProp.GetString(), out var y))
-                        year = y;
-                }
-
-                var movie = new Movie
-                {
-                    Id = show.GetProperty("id").GetString(),
-                    Title = show.GetProperty("title").GetString(),
-                    Overview = show.GetProperty("overview").GetString(),
-                    Director = show.GetProperty("directors")
-                                .EnumerateArray()
-                                .Select(d => d.GetString())
-                                .ToList(),
-                    Genres = show.GetProperty("genres")
-                                .EnumerateArray()
-                                .Select(g => g.GetProperty("id").GetString())
-                                .ToList(),
-                    Rating = rating,
-                    Year = year,
-                    PosterUrl = show.GetProperty("imageSet")
-                                    .GetProperty("verticalPoster")
-                                    .GetProperty("w480")
-                                    .GetString(),
-                    Services = show.GetProperty("streamingOptions")
-                                .GetProperty("us")
-                                .EnumerateArray()
-                                .Select(s => s.GetProperty("service")
-                                              .GetProperty("id")
-                                              .GetString()
-                                )
-                                .ToList()
-                };
-
-                movies.Add(movie);
             }
 
-            var nextCursor = root.GetProperty("cursor").GetString();
+            var nextCursor = root.TryGetProperty("nextCursor", out var cursorProp) && cursorProp.ValueKind == JsonValueKind.String
+                ? cursorProp.GetString()
+                : null;
 
             return new MovieApiResult
             {

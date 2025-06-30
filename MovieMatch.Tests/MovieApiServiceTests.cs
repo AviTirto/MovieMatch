@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using MovieMatch.Enums;
 using MovieMatch.Services;
 using MovieMatch.Models;
+using MovieMatch.Models.DTOs;
 using Xunit;
 
 public class MovieApiServiceTests
@@ -25,12 +26,12 @@ public class MovieApiServiceTests
     [Fact]
     public async Task GetMoviesAsync_ReturnsNonEmptyList_AndLogsMovies()
     {
-        var movies = await _movieApiService.GetMoviesAsync(Array.Empty<string>(), ShowType.Movie);
+        var result = await _movieApiService.GetMoviesAsync(Array.Empty<string>(), ShowType.Movie);
 
-        Assert.NotNull(movies);
-        Assert.NotEmpty(movies);
+        Assert.NotNull(result);
+        Assert.NotEmpty(result.Movies);
 
-        foreach (var movie in movies)
+        foreach (var movie in result.Movies)
         {
             Console.WriteLine(FormatMovieForLog(movie));
             Console.WriteLine(new string('-', 80));

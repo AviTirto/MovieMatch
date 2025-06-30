@@ -18,6 +18,6 @@ namespace MovieMatch.Services.Game
             var ApiResult = await _movieApiService.GetMoviesAsync(room.Services, room.ShowType, room.Cursor);
             room.Cursor = ApiResult.Cursor;
             return ApiResult.Movies;
+        }
     }
-}
 }

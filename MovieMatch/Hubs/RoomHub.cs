@@ -112,9 +112,11 @@ namespace MovieMatch.Hubs
                 return;
             }
 
-            var movies = _movieFetchService.FetchNextBatchAsync(room);
 
-            await Clients.Group(roomCode).SendAsync("StartGame", movies);
+            var movies = await _movieFetchService.FetchNextBatchAsync(room);
+
+
+            await Clients.Group(roomCode).SendAsync("GameStarted", movies);
         }
 
         public async Task RequestMovies(string roomCode)
@@ -126,7 +128,7 @@ namespace MovieMatch.Hubs
                 return;
             }
 
-            var movies = _movieFetchService.FetchNextBatchAsync(room);
+            var movies = await _movieFetchService.FetchNextBatchAsync(room);
 
             await Clients.Group(roomCode).SendAsync("RecieveMovies", movies);
         }
